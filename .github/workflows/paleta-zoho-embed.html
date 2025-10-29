@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paleta Oficial • Zoho Brasil (Embed)</title>
+  <style>
+    :root{
+      --border:#e6e6e6;
+      --muted:#6b7280;
+      --btn-border:#d0d7de;
+    }
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#fff;color:#111;}
+    .wrap{max-width:980px;margin:0 auto;padding:18px;}
+    h2{margin:0 0 8px 0;font-size:20px;}
+    p.lead{margin:0 0 16px 0;color:#555;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;}
+    .card{border:1px solid var(--border);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;}
+    .row{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+    .badge{font-size:12px;padding:2px 8px;border-radius:999px;}
+    .swatch{width:52px;height:52px;border-radius:10px;flex:0 0 auto;}
+    .pair{display:flex;align-items:center;gap:12px;}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;font-size:14px;}
+    button{margin-top:6px;border:1px solid var(--btn-border);border-radius:8px;padding:8px 12px;background:#fff;cursor:pointer;}
+    .foot{margin:14px 0 0 0;font-size:12px;color:var(--muted);}
+    @media (prefers-color-scheme: dark){
+      body{background:#0b0f14;color:#eaeef2;}
+      .card{border-color:#223042;background:#111825;}
+      button{background:#0b0f14;color:#eaeef2;border-color:#2a3a4d;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h2>Paleta Oficial • Zoho Brasil</h2>
+    <p class="lead">Clique em <strong>Copiar</strong> para enviar o código HEX para a área de transferência.</p>
+
+    <div class="grid">
+      <!-- Vendas & Relacionamento -->
+      <div class="card">
+        <div class="row">
+          <div style="font-weight:600">Vendas & Relacionamento</div>
+          <span class="badge" style="background:#eef5fd;color:#2D7DD2">Primária</span>
+        </div>
+        <div class="pair">
+          <div class="swatch" style="background:#2D7DD2"></div>
+          <div>
+            <code>#2D7DD2</code><br/>
+            <button data-copy="#2D7DD2">Copiar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Operações & Eficiência -->
+      <div class="card">
+        <div class="row">
+          <div style="font-weight:600">Operações & Eficiência</div>
+          <span class="badge" style="background:#fff6e5;color:#F4A300">Primária</span>
+        </div>
+        <div class="pair">
+          <div class="swatch" style="background:#F4A300"></div>
+          <div>
+            <code>#F4A300</code><br/>
+            <button data-copy="#F4A300">Copiar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Financeiro -->
+      <div class="card">
+        <div class="row">
+          <div style="font-weight:600">Financeiro</div>
+          <span class="badge" style="background:#e8f5ee;color:#2E7D32">Primária</span>
+        </div>
+        <div class="pair">
+          <div class="swatch" style="background:#2E7D32"></div>
+          <div>
+            <code>#2E7D32</code><br/>
+            <button data-copy="#2E7D32">Copiar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Marketing & Performance -->
+      <div class="card">
+        <div class="row">
+          <div style="font-weight:600">Marketing & Performance</div>
+          <span class="badge" style="background:#ffe9e3;color:#F26A4B">Primária</span>
+        </div>
+        <div class="pair">
+          <div class="swatch" style="background:#F26A4B"></div>
+          <div>
+            <code>#F26A4B</code><br/>
+            <button data-copy="#F26A4B">Copiar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Colaboração & Produtividade -->
+      <div class="card">
+        <div class="row">
+          <div style="font-weight:600">Colaboração & Produtividade</div>
+          <span class="badge" style="background:#fdeef1;color:#D88C9A">Primária</span>
+        </div>
+        <div class="pair">
+          <div class="swatch" style="background:#D88C9A"></div>
+          <div>
+            <code>#D88C9A</code><br/>
+            <button data-copy="#D88C9A">Copiar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="foot">Se o navegador bloquear a cópia, o fallback tenta copiar automaticamente; em último caso, selecione o código e use Ctrl/Cmd+C.</p>
+  </div>
+
+  <script>
+    (function(){
+      function flash(btn, label){
+        var old = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = label;
+        setTimeout(function(){ btn.textContent = old; btn.disabled = false; }, 1400);
+      }
+      function copyText(txt, btn){
+        if (navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(txt).then(function(){ flash(btn,'Copiado!'); })
+                                            .catch(function(){ legacy(); });
+        } else { legacy(); }
+        function legacy(){
+          var ta = document.createElement('textarea');
+          ta.value = txt; ta.style.position='fixed'; ta.style.opacity='0';
+          document.body.appendChild(ta); ta.focus(); ta.select();
+          try{ document.execCommand('copy'); flash(btn,'Copiado!'); }
+          catch(e){ flash(btn,'Falhou'); }
+          document.body.removeChild(ta);
+        }
+      }
+      Array.prototype.forEach.call(document.querySelectorAll('[data-copy]'), function(btn){
+        btn.addEventListener('click', function(){ copyText(btn.getAttribute('data-copy'), btn); });
+      });
+    })();
+  </script>
+</body>
+</html>
